@@ -1,0 +1,5 @@
+.git
+.env
+*.log
+sql/*.sql
+README.md
