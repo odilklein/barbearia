@@ -1,4 +1,11 @@
-<?php require_once __DIR__ . '/include/config.php'; ?>
+<?php 
+    // Ativa exibição de erros para debug
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+    // IMPORTANTE: O config deve vir primeiro para as variáveis existirem no cabeçalho
+    require_once __DIR__ . '/include/config.php'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,10 +43,10 @@
 
                 <div class="mb-3">
                     <label class="form-label">Escolha o Serviço:</label>
-                    <select name="servico" class="form-select" required>
-                        <?php foreach ($servicos as $servico => $valor): ?>
-                            <option value="<?php echo htmlspecialchars($servico); ?>"><?php echo htmlspecialchars($servico); ?> - R$ <?php echo number_format($valor, 2, ',', '.'); ?></option>
-                        <?php endforeach; ?>
+                    <select name="servico" class="form-select">
+                        <option value="Corte">Corte Masculino - R$ 30,00</option>
+                        <option value="Barba">Barba Terapia - R$ 25,00</option>
+                        <option value="Combo">Combo (Cabelo + Barba) - R$ 50,00</option>
                     </select>
                 </div>
 

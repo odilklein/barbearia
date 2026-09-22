@@ -1,15 +1,16 @@
 <?php
-$host = getenv('DB_HOST') ?: 'db';
-$port = getenv('DB_PORT') ?: '3306';
-$dbname = getenv('DB_NAME') ?: 'barbearia';
-$user = getenv('DB_USER') ?: 'barbearia';
-$pass = getenv('DB_PASS') ?: 'root123';
+$host = "db";
+$dbname = "barbearia";
+$user = "barbearia";
+$pass = "root123";
 
 try {
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
+    // DSN (Data Source Name)
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+
+    // Ativa o modo de erro para exceções (ajuda no debug)
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die('Erro ao conectar ao banco de dados.');
+    die("Erro ao conectar: " . $e->getMessage());
 }
+?>

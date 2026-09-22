@@ -2,11 +2,6 @@
 // Configurações gerais
 $nome_barbearia = "ZeroByte Barber";
 $contato = "(11) 98888-7777";
-$servicos = [
-    'Corte' => 30.00,
-    'Barba' => 25.00,
-    'Combo' => 50.00,
-];
 
 // Função para saudação baseada na hora
 function saudar() {
@@ -17,6 +12,9 @@ function saudar() {
 }
 
 function calcularValor($servico) {
-    global $servicos;
-    return $servicos[$servico] ?? 0.00;
+    if ($servico == "Corte") return 30.00;
+    if ($servico == "Barba") return 25.00;
+    if ($servico == "Combo") return 50.00;
+    return 0.00;
 }
+?>
