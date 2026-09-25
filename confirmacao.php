@@ -34,7 +34,7 @@
                     $servico = $_POST['servico'];
                     $data = $_POST['data_agendamento'];
                     $telefone = $_POST['telefone'];
-                    $hora = $_POST['hora'];
+                    $horario = $_POST['hora_agendamento'];
 
                     if (strlen($cliente) < 3) {
                         echo "<div class='alert alert-danger'>O nome deve ter pelo menos 3 letras.</div>";
@@ -44,7 +44,7 @@
 
                     try {
                         // Inserção no Banco de Dados
-                        $sql = "INSERT INTO agendamentos (cliente, servico, data_agendamento, telefone, hora)
+                        $sql = "INSERT INTO agendamentos (cliente, servico, data_agendamento, telefone, horario)
                                 VALUES (:cli, :ser, :dat, :tel, :hor)";
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute([
@@ -52,7 +52,7 @@
                             ':ser' => $servico,
                             ':dat' => $data,
                             ':tel' => $telefone,
-                            ':hor' => $hora
+                            ':hor' => $horario
                         ]);
                 ?>
 

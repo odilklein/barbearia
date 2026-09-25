@@ -3,8 +3,8 @@
     require_once __DIR__ . '/include/conexao.php';
     include_once __DIR__ . '/include/cabecalho.php';
 
-// 1. Buscamos os dados ordenados por data e hora (os mais próximos primeiro)
-$sql = "SELECT * FROM agendamentos ORDER BY data_agendamento ASC, hora ASC";
+// 1. Buscamos os dados ordenados por data e horário (os mais próximos primeiro)
+$sql = "SELECT * FROM agendamentos ORDER BY data_agendamento ASC, horario ASC";
 $stmt = $pdo->query($sql);
 $agendamentos = $stmt->fetchAll(PDO::FETCH_ASSOC); //Cria um Array com elemnetos
 ?>
@@ -42,7 +42,7 @@ $agendamentos = $stmt->fetchAll(PDO::FETCH_ASSOC); //Cria um Array com elemnetos
                             <?php foreach ($agendamentos as $row): ?>
                                 <tr>
                                     <td><?php echo date('d/m/Y', strtotime($row['data_agendamento'])); ?></td>
-                                    <td><?php echo date('H:i', strtotime($row['hora'])); ?></td>
+                                    <td><?php echo date('H:i', strtotime($row['horario'])); ?></td>
                                     <td><strong><?php echo $row['cliente']; ?></strong></td>
                                     <td><span class="badge bg-info text-dark"><?php echo $row['servico']; ?></span></td>
                                     <td>

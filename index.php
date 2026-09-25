@@ -38,7 +38,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Hora</label>
-                    <input type="time" name="hora" class="form-control" required>
+                    <input type="time" name="hora_agendamento" class="form-control" required>
                 </div>
 
                 <div class="mb-3">

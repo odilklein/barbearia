@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS agendamentos (
     valor DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     data_agendamento DATE NOT NULL,
     telefone VARCHAR(20) NOT NULL,
-    hora TIME NOT NULL,
+    horario TIME NOT NULL,
     criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
